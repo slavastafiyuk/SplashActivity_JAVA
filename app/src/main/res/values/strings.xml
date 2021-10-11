@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SplashActivity_JAVA</string>
+    <string name="button">Iniciar</string>
+    <string name="color">Cor</string>
+    <string name="FAQ">FAQ</string>
+    <string name="VERMELHO">Vermelho</string>
+    <string name="VERDE">Verde</string>
+    <string name="AZUL">Azul</string>
+    <string name="ROXO">Roxo</string>
+    <string name="ROSA">Rosa</string>
+    <string name="LARANJA">Laranja</string>
+    <string name="CINZENTO">Cinzento</string>
+</resources>
