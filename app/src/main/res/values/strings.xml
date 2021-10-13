@@ -10,4 +10,10 @@
     <string name="ROSA">Rosa</string>
     <string name="LARANJA">Laranja</string>
     <string name="CINZENTO">Cinzento</string>
+    <string name="voltar_paint">Voltar</string>
+    <string name="paint">Paint</string>
+    <string name="canvas">Canvas</string>
+    <string name="palette">Palette</string>
+    <string name="canvasFragment">Desenhe aqui!!</string>
+    <string name="paletteFragment">Escolha a cor aqui!!</string>
 </resources>
