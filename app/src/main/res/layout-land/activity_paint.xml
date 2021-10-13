@@ -1,32 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/paint_land"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/paint_land"
     android:orientation="vertical"
     tools:context=".Paint">
 
 
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/azul"
+        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/roxo"
+        app:layout_constraintEnd_toStartOf="@+id/button11"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/rosa"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/cinzento"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/laranja"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/verde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="210dp"
+        android:layout_height="54dp"
+        android:text="@string/voltar_paint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView2"
-            android:name="com.example.splashactivity_java.Palette"
+            android:name="com.example.splashactivity_java.Palette_land"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            tools:layout="@layout/fragment_palette" />
+            android:layout_weight="10"
+            tools:layout="@layout/fragment_palette_land" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="com.example.splashactivity_java.Canvas"
+            android:name="com.example.splashactivity_java.Canvas_land"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            tools:layout="@layout/fragment_canvas" />
+            android:layout_height="357dp"
+            android:layout_weight="4"
+            tools:layout="@layout/fragment_canvas_land" />
+
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

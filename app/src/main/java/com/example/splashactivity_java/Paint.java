@@ -15,14 +15,13 @@ public class Paint extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
-
         ////Portrait mode
-        //if(findViewById(R.id.paint_default) != null){
-        //    FragmentManager manager = this.getSupportFragmentManager();
-        //    manager.beginTransaction()
-        //            //.show(manager.findFragmentById(R.id.frameLayout))
-        //            .commit();
-        //}
+        if(findViewById(R.id.paint_default) != null){
+            Button btnCanvas = findViewById(R.id.canvasButton);
+            btnCanvas.setOnClickListener(v -> replaceFragment(new Canvas()));
+            Button btnPalette = findViewById(R.id.paletteButton);
+            btnPalette.setOnClickListener(v -> replaceFragment(new Palette()));
+        }
         ////landscape mode
         //if(findViewById(R.id.paint_land) != null){
         //    FragmentManager manager = this.getSupportFragmentManager();
@@ -32,10 +31,7 @@ public class Paint extends AppCompatActivity {
         //            .commit();
         //}
 
-        Button btnCanvas = findViewById(R.id.canvasButton);
-        btnCanvas.setOnClickListener(v -> replaceFragment(new Canvas()));
-        Button btnPalette = findViewById(R.id.paletteButton);
-        btnPalette.setOnClickListener(v -> replaceFragment(new Palette()));
+
 
     }
 
@@ -44,7 +40,5 @@ public class Paint extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
-
-
     }
 }
