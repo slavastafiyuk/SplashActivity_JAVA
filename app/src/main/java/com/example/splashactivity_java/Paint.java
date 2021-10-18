@@ -30,9 +30,6 @@ public class Paint extends AppCompatActivity {
         //            //.show(manager.findFragmentById(R.id.fragmnetID))
         //            .commit();
         //}
-
-
-
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -40,5 +37,26 @@ public class Paint extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void redColor(View view) {
+    }
+
+    public void eraser(View view) {
+    }
+
+    public void pencil(View view) {
+    }
+
+    public void yellowColor(View view) {
+    }
+
+    public void greenColor(View view) {
+    }
+
+    public void magentaColor(View view) {
+    }
+
+    public void blueColor(View view) {
     }
 }
