@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/paint_default"
     android:orientation="vertical"
-    tools:context=".Paint">
+    tools:context=".Draw">
 
     <Button
         android:id="@+id/voltar_paint"

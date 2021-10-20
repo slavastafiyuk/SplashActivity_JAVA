@@ -17,7 +17,7 @@ public class Settings extends AppCompatActivity {
         Button btnStart = findViewById(R.id.faqButton);
         btnStart.setOnClickListener(v -> startActivity(new Intent(Settings.this, FAQ.class)));
         Button btnPaint = findViewById(R.id.paintButton);
-        btnPaint.setOnClickListener(v -> startActivity(new Intent(Settings.this, Paint.class)));
+        btnPaint.setOnClickListener(v -> startActivity(new Intent(Settings.this, Draw.class)));
 
     }
 }

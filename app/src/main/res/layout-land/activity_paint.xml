@@ -1,134 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/paint_land"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Paint">
-
+    android:orientation="horizontal"
+    tools:context=".Draw">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:id="@+id/constraintLayout2"
+        android:layout_width="411dp"
+        android:layout_height="646dp"
+        android:layout_marginEnd="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        >
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
-            android:name="com.example.splashactivity_java.Canvas_land"
-            android:layout_width="726dp"
-            android:layout_height="412dp"
-            android:layout_weight="4"
+        <include
+            android:id="@+id/include"
+            layout="@layout/fragment_canvas_land"
+            android:layout_width="716dp"
+            android:layout_height="411dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fragmentContainerView2"
-            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout="@layout/fragment_canvas_land" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView2"
-            android:name="com.example.splashactivity_java.Palette_land"
-            android:layout_width="122dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="129dp"
             android:layout_height="412dp"
-            android:layout_weight="10"
+            android:background="@drawable/tools_design"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/fragmentContainerView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/fragment_palette_land"
-            />
+            app:layout_constraintStart_toEndOf="@+id/include"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/pencil"
+                android:onClick="pencil"
+                android:rotation="-35"
+                app:backgroundTint="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/eraser"
+                android:onClick="eraser"
+                app:backgroundTint="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/button_design"
+                android:onClick="redColor"
+                app:backgroundTint="#ff0000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button3"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/button_design"
+                android:onClick="yellowColor"
+                app:backgroundTint="#f1c40f"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button2"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/button_design"
+                android:onClick="greenColor"
+                app:backgroundTint="#00ff00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button4"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/button_design"
+                android:onClick="magentaColor"
+                app:backgroundTint="#ff00ff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button5"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="47dp"
+                android:background="@drawable/button_design"
+                android:onClick="blueColor"
+                app:backgroundTint="#0000ff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button6"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/eraser"
-            android:onClick="eraser"
-            app:backgroundTint="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="76dp"
-            android:background="@drawable/pencil"
-            android:onClick="pencil"
-            android:rotation="-45"
-            app:backgroundTint="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="76dp"
-            android:background="@drawable/button_design"
-            android:onClick="redColor"
-            app:backgroundTint="#ff0000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="76dp"
-            android:background="@drawable/button_design"
-            android:onClick="yellowColor"
-            app:backgroundTint="#f1c40f"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_design"
-            android:onClick="greenColor"
-            app:backgroundTint="#00ff00"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="188dp"
-            android:layout_marginEnd="76dp"
-            android:background="@drawable/button_design"
-            android:onClick="magentaColor"
-            app:backgroundTint="#ff00ff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_design"
-            android:onClick="blueColor"
-            app:backgroundTint="#0000ff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
