@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -87,5 +88,9 @@ public class Draw extends AppCompatActivity {
     public void currentColor(int c){
         current_brush = c;
         path = new Path();
+    }
+
+    public void voltar(View view) {
+        startActivity(new Intent(Draw.this, Settings.class));
     }
 }
