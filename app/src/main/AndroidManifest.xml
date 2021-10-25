@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SplashActivity_JAVA">
         <activity
+            android:name=".Canvas_port"
+            android:exported="false" />
+        <activity
             android:name=".Draw"
             android:exported="true" />
         <activity

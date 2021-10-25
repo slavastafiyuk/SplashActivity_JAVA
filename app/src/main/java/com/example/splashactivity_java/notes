@@ -1,0 +1,21 @@
+        //landscape mode
+        //if(findViewById(R.id.paint_land) != null){
+        //    FragmentManager manager = this.getSupportFragmentManager();
+        //    manager.beginTransaction()
+        //            //.show(manager.findFragmentById(R.id.fragmentID))
+        //            //.show(manager.findFragmentById(R.id.fragmnetID))
+        //            .commit();
+        //}
+        //Portrait mode
+        //if(findViewById(R.id.paint_default) != null){
+            //    Button btnCanvas = findViewById(R.id.canvasButton);
+            //    btnCanvas.setOnClickListener(v -> replaceFragment(new Canvas()));
+            //    Button btnPalette = findViewById(R.id.paletteButton);
+            //    btnPalette.setOnClickListener(v -> replaceFragment(new Palette()));
+            //}
+        //private void replaceFragment(Fragment fragment) {
+            //    FragmentManager fragmentManager = getSupportFragmentManager();
+            //    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            //    fragmentTransaction.replace(R.id.frameLayout, fragment);
+            //    fragmentTransaction.commit();
+            //}

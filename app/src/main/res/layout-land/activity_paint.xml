@@ -19,7 +19,7 @@
 
         <include
             android:id="@+id/include"
-            layout="@layout/fragment_canvas_land"
+            layout="@layout/activity_canvas_land"
             android:layout_width="716dp"
             android:layout_height="411dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="47dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="47dp"
                 android:background="@drawable/pencil"
                 android:onClick="pencil"

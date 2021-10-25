@@ -1,52 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/paint_default"
     android:orientation="vertical"
     tools:context=".Draw">
-
-    <Button
-        android:id="@+id/voltar_paint"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:text="@string/voltar_paint"
-        android:onClick="voltar"
-        app:layout_constraintEnd_toStartOf="@+id/canvasButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voltar_paint" />
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="0dp">
 
-    <Button
-        android:id="@+id/canvasButton"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:text="@string/canvas"
-        app:layout_constraintEnd_toStartOf="@+id/paletteButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/voltar_paint"
-        app:layout_constraintTop_toTopOf="parent" />
+        <include
+            android:id="@+id/include"
+            layout="@layout/activity_canvas_port"
+            android:layout_width="412dp"
+            android:layout_height="752dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="411dp"
+            android:layout_height="47dp"
+            android:onClick="voltar"
+            android:text="@string/voltar_paint"
+            app:layout_constraintBottom_toTopOf="@+id/include"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/paletteButton"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:text="@string/palette"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/canvasButton"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="411dp"
+            android:layout_height="47dp"
+            android:text="@string/Apagar"
+            android:onClick="apagar"
+            app:layout_constraintBottom_toTopOf="@+id/include"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
