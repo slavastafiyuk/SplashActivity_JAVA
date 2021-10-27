@@ -4,7 +4,6 @@ import static com.example.splashactivity_java.Canvas_land.colorList;
 import static com.example.splashactivity_java.Canvas_land.current_brush;
 import static com.example.splashactivity_java.Canvas_land.pathList;
 //Canvas_Port
-//import static com.example.splashactivity_java.Canvas_port.colorList_port;
 import static com.example.splashactivity_java.Canvas_port.pathList_port;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,34 +26,34 @@ public class Draw extends AppCompatActivity {
     public static Paint paint_brush_port = new Paint();
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
-    private float mAccelLast;
     private float mAccelCurrent;
     private float mAccel;
 
-    private SensorEventListener sensorEventListener = new SensorEventListener() {
+    private final SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
             float x = sensorEvent.values[0];
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
 
-            mAccelLast = mAccelCurrent;
+            float mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
             float delta = (float) (mAccelCurrent - mAccelLast);
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
-
-            if (mAccel > 30) {
-                pathList.clear();
-                colorList.clear();
-                path.reset();
-                pathList_port.clear();
-                //colorList_port.clear();
-                path_port.reset();
+            if(findViewById(R.id.paint_port) != null){
+                if (mAccel > 27) {
+                    pathList_port.clear();
+                    path_port.reset();
+                }
             }
-
-
+            if(findViewById(R.id.paint_land) != null){
+                if (mAccel > 27) {
+                    pathList.clear();
+                    colorList.clear();
+                    path.reset();
+                }
+            }
         }
-
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
@@ -66,7 +65,6 @@ public class Draw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
-
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
@@ -76,7 +74,6 @@ public class Draw extends AppCompatActivity {
 
     public void apagar(View view) {
         pathList_port.clear();
-        //colorList_port.clear();
         path_port.reset();
     }
 
