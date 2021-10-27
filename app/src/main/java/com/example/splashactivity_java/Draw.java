@@ -13,6 +13,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,11 +25,51 @@ public class Draw extends AppCompatActivity {
     public static Path path_port = new Path();
     public static Paint paint_brush = new Paint();
     public static Paint paint_brush_port = new Paint();
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private float mAccelLast;
+    private float mAccelCurrent;
+    private float mAccel;
+
+    private SensorEventListener sensorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            mAccelLast = mAccelCurrent;
+            mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+            float delta = (float) (mAccelCurrent - mAccelLast);
+            mAccel = mAccel * 0.9f + delta; // perform low-cut filter
+
+            if (mAccel > 30) {
+                pathList.clear();
+                colorList.clear();
+                path.reset();
+                pathList_port.clear();
+                //colorList_port.clear();
+                path_port.reset();
+            }
+
+
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
+
+        mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
 
     }
     //-----------------------------------------------------------------PORTRAIT PAINT
@@ -84,4 +128,15 @@ public class Draw extends AppCompatActivity {
     public void voltar(View view) {
         startActivity(new Intent(Draw.this, Settings.class));
     }
+
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(sensorEventListener, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(sensorEventListener);
+    }
+
 }
