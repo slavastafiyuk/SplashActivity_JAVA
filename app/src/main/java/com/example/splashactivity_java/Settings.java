@@ -18,6 +18,8 @@ public class Settings extends AppCompatActivity {
         btnStart.setOnClickListener(v -> startActivity(new Intent(Settings.this, FAQ.class)));
         Button btnPaint = findViewById(R.id.paintButton);
         btnPaint.setOnClickListener(v -> startActivity(new Intent(Settings.this, Draw.class)));
+        Button btnMap = findViewById(R.id.mapButton);
+        btnMap.setOnClickListener(v -> startActivity(new Intent(Settings.this, MAP.class)));
 
     }
 }
