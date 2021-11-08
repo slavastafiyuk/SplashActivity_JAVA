@@ -20,4 +20,6 @@
     <string name="Apagar">Apagar</string>
     <string name="MAP">MAP</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="Iniciar_Caminho">Iniciar</string>
+    <string name="Parar_Caminho">Parar</string>
 </resources>
