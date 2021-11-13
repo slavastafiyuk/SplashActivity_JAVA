@@ -53,6 +53,16 @@ public class Draw extends AppCompatActivity {
                     path.reset();
                 }
             }
+
+            if(Math.abs(x)>8.8 && Math.abs(x)<10.8){
+                getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+            }else if(Math.abs(y)>8.8 && Math.abs(y)<10.8){
+                getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+            }else if(Math.abs(z)>8.8 && Math.abs(z)<10.8){
+                getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
+            }else{
+                getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+            }
         }
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -123,7 +133,7 @@ public class Draw extends AppCompatActivity {
     }
 
     public void voltar(View view) {
-        startActivity(new Intent(Draw.this, Settings.class));
+        startActivity(new Intent(Draw.this, Setting.class));
     }
 
     protected void onResume() {
