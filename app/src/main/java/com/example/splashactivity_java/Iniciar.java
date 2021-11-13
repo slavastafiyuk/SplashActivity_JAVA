@@ -14,6 +14,6 @@ public class Iniciar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar);
         Button btnStart = findViewById(R.id.startButton);
-        btnStart.setOnClickListener(v -> startActivity(new Intent(Iniciar.this, Settings.class)));
+        btnStart.setOnClickListener(v -> startActivity(new Intent(Iniciar.this, Setting.class)));
     }
 }
