@@ -9,7 +9,7 @@
     tools:context=".MAP" >
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/comecarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
