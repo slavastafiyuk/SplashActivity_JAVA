@@ -227,8 +227,10 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType()==Sensor.TYPE_LIGHT){
-            textView.setText("" + event.values[0]);
+        if(findViewById(R.id.paint_port) != null) {
+            if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+                textView.setText("" + event.values[0]);
+            }
         }
     }
 
