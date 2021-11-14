@@ -30,7 +30,6 @@ import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -40,8 +39,6 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     //-----------------------------------------------
-
-
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private static final int LOCATION_PERMISSION_CODE = 101;
@@ -81,7 +78,6 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
             }
         }
     }
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
@@ -128,17 +124,14 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
                     lat1 = latitude;
                     lon1 = longitude;
                 }
-
                 @Override
                 public void onProviderDisabled(String provider) {
                     // TODO Auto-generated method stub
                 }
-
                 @Override
                 public void onProviderEnabled(String provider) {
                     // TODO Auto-generated method stub
                 }
-
                 @Override
                 public void onStatusChanged(String provider, int status,
                                             Bundle extras) {
@@ -152,12 +145,10 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
                 == PackageManager.PERMISSION_GRANTED;
 
     }
-
     private void requestLocationPermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                 LOCATION_PERMISSION_CODE);
     }
-
     @SuppressLint("SetTextI18n")
     public void Caminho(View view) {
         Button button = (Button) view;

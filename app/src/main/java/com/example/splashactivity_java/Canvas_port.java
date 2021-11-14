@@ -3,8 +3,6 @@ package com.example.splashactivity_java;
 import static com.example.splashactivity_java.Draw.paint_brush_port;
 import static com.example.splashactivity_java.Draw.path_port;
 
-import androidx.annotation.Nullable;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,6 @@ public class Canvas_port extends View {
         super(context, attrs, defStyleAttr);
         init(context);
     }
-
 
     private void init(Context context){
         paint_brush_port.setAntiAlias(true);

@@ -38,11 +38,11 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/apagarButton"
             android:layout_width="411dp"
             android:layout_height="47dp"
             android:text="@string/Apagar"
-            android:onClick="apagar"
+
             app:layout_constraintBottom_toTopOf="@+id/include"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
