@@ -33,9 +33,8 @@ public class Setting extends AppCompatActivity {
         seekBar.setKeyProgressIncrement(1);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if (Settings.System.canWrite(this)){
-                Toast.makeText(this, "Mudar Brilho", Toast.LENGTH_SHORT).show();
-            }else{
+            if (Settings.System.canWrite(this)){}
+            else{
                 Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                 intent.setData(Uri.parse("package:" + getApplication().getPackageName()));
                 startActivity(intent);
