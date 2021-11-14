@@ -69,11 +69,11 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
                     path.reset();
                 }
             }
-            if(Math.abs(x)>8.0 && Math.abs(x)<11){
+            if(Math.abs(x)>9.5 && Math.abs(x)<10.3){
                 getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-            }else if(Math.abs(y)>8.0 && Math.abs(y)<11){
+            }else if(Math.abs(y)>9.5 && Math.abs(y)<10.3){
                 getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-            }else if(Math.abs(z)>8.0 && Math.abs(z)<11){
+            }else if(Math.abs(z)>9.5 && Math.abs(z)<10.3){
                 getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
             }else{
                 getWindow().getDecorView().setBackgroundColor(Color.WHITE);
