@@ -40,7 +40,6 @@ public class Setting extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-
         try {
             brightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS);
             seekBar.setProgress(brightness);
@@ -56,18 +55,13 @@ public class Setting extends AppCompatActivity {
                 layoutParams.screenBrightness=brightness/(float)300;
                 window.setAttributes(layoutParams);
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
-
         //Butões
         Button btnCores = findViewById(R.id.colorButton);
         btnCores.setOnClickListener(v -> startActivity(new Intent(Setting.this, Cores.class)));

@@ -10,7 +10,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 
@@ -29,13 +28,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.maps.model.Polyline;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MAP extends FragmentActivity implements OnMapReadyCallback {
+    //FIREBASE---------------------------------------
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+    //-----------------------------------------------
+
+
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private static final int LOCATION_PERMISSION_CODE = 101;
@@ -186,6 +192,9 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 20), 1000, null);
             //-----------------------------------------------------
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("rotas");
+
         }
     }
     public boolean desenhar(View view){
