@@ -1,10 +1,13 @@
 package com.example.splashactivity_java;
 //Canvas_Land
+
 import static com.example.splashactivity_java.Canvas_land.colorList;
 import static com.example.splashactivity_java.Canvas_land.current_brush;
 import static com.example.splashactivity_java.Canvas_land.pathList;
 import static com.example.splashactivity_java.Canvas_port.pathList_port;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,12 +21,13 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 //Canvas_Port
 
-public class Draw extends AppCompatActivity {
+public class Draw extends AppCompatActivity implements SensorEventListener{
     public static Path path = new Path();
     public static Path path_port = new Path();
     public static Paint paint_brush = new Paint();
@@ -32,19 +36,22 @@ public class Draw extends AppCompatActivity {
     private Sensor mAccelerometer;
     private float mAccelCurrent;
     private float mAccel;
-
+    Canvas_port port;
     Button buttonApagar;
     Button buttonPincel;
 
+    TextView textView;
+    SensorManager senManager;
+    Sensor sensor;
 
 
+    Context context;
     private final SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
             float x = sensorEvent.values[0];
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
-
             float mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
             float delta = (float) (mAccelCurrent - mAccelLast);
@@ -83,11 +90,20 @@ public class Draw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
+
+        textView = (TextView) findViewById(R.id.textView2);
+
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
+
+        senManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sensor = senManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
         buttonApagar = findViewById(R.id.apagarButton);
         buttonPincel = findViewById(R.id.ButtonPincel);
+
+
         if(findViewById(R.id.paint_port) != null){
             buttonApagar.setOnTouchListener(new View.OnTouchListener() {
                 GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
@@ -154,71 +170,70 @@ public class Draw extends AppCompatActivity {
                 }
             });
         }
-
-
     }
     //-----------------------------------------------------------------PORTRAIT PAINT
-
     //public void apagar(View view) {
     //    pathList_port.clear();
     //    path_port.reset();
     //}
-
     //---------------------------------------------------------------LANDSCAPE PAINT
-
     //public void pencil(View view) {
     //    paint_brush.setColor(Color.BLACK);
     //    currentColor(paint_brush.getColor());
     //}
-
     public void eraser(View view) {
         pathList.clear();
         colorList.clear();
         path.reset();
     }
-
     public void redColor(View view) {
         paint_brush.setColor(Color.RED);
         currentColor(paint_brush.getColor());
     }
-
     public void yellowColor(View view) {
         paint_brush.setColor(Color.YELLOW);
         currentColor(paint_brush.getColor());
     }
-
     public void greenColor(View view) {
         paint_brush.setColor(Color.GREEN);
         currentColor(paint_brush.getColor());
     }
-
     public void magentaColor(View view) {
         paint_brush.setColor(Color.MAGENTA);
         currentColor(paint_brush.getColor());
     }
-
     public void blueColor(View view) {
         paint_brush.setColor(Color.BLUE);
         currentColor(paint_brush.getColor());
     }
-
     public void currentColor(int c){
         current_brush = c;
         path = new Path();
     }
-
     public void voltar(View view) {
         startActivity(new Intent(Draw.this, Setting.class));
     }
-
     protected void onResume() {
         super.onResume();
         mSensorManager.registerListener(sensorEventListener, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        senManager.registerListener(this, sensor, senManager.SENSOR_DELAY_NORMAL);
     }
-
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(sensorEventListener);
+        senManager.unregisterListener(this);
     }
 
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType()==Sensor.TYPE_LIGHT){
+            textView.setText("" + event.values[0]);
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
 }
