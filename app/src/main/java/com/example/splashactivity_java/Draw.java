@@ -76,9 +76,10 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
                 getWindow().getDecorView().setBackgroundColor(Color.GREEN);
             }else if(Math.abs(z)>9.65 && Math.abs(z)<9.95){
                 getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-            }else{
-                getWindow().getDecorView().setBackgroundColor(Color.WHITE);
             }
+            //else{
+            //    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+            //}
         }
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
