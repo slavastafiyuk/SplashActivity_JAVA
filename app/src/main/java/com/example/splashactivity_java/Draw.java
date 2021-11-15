@@ -1,13 +1,12 @@
 package com.example.splashactivity_java;
 //Canvas_Land
-
 import static com.example.splashactivity_java.Canvas_land.colorList;
 import static com.example.splashactivity_java.Canvas_land.current_brush;
 import static com.example.splashactivity_java.Canvas_land.pathList;
 import static com.example.splashactivity_java.Canvas_port.pathList_port;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,6 +16,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//Canvas_Port
 
 public class Draw extends AppCompatActivity implements SensorEventListener{
     public static Path path = new Path();
@@ -36,7 +35,6 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     private Sensor mAccelerometer;
     private float mAccelCurrent;
     private float mAccel;
-    Canvas_port port;
     Button buttonApagar;
     Button buttonPincel;
 
@@ -44,8 +42,6 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     SensorManager senManager;
     Sensor sensor;
 
-
-    Context context;
     private final SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
@@ -53,8 +49,8 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
             float mAccelLast = mAccelCurrent;
-            mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
-            float delta = (float) (mAccelCurrent - mAccelLast);
+            mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
+            float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
             if(findViewById(R.id.paint_port) != null){
                 if (mAccel > 27) {
@@ -69,33 +65,32 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
                     path.reset();
                 }
             }
-            if(Math.abs(x)>8.0 && Math.abs(x)<11){
+            if(Math.abs(x)>9.65 && Math.abs(x)<9.95){
                 getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-            }else if(Math.abs(y)>8.0 && Math.abs(y)<11){
+            }else if(Math.abs(y)>9.65 && Math.abs(y)<9.95){
                 getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-            }else if(Math.abs(z)>8.0 && Math.abs(z)<11){
+            }else if(Math.abs(z)>9.65 && Math.abs(z)<9.95){
                 getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-            }else{
-                getWindow().getDecorView().setBackgroundColor(Color.WHITE);
             }
+            //else{
+            //    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+            //}
         }
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
         }
     };
-
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
 
-        textView = (TextView) findViewById(R.id.textView2);
+        textView = findViewById(R.id.textView2);
 
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-
 
         senManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         sensor = senManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -103,10 +98,9 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
         buttonApagar = findViewById(R.id.apagarButton);
         buttonPincel = findViewById(R.id.ButtonPincel);
 
-
         if(findViewById(R.id.paint_port) != null){
             buttonApagar.setOnTouchListener(new View.OnTouchListener() {
-                GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
+                final GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
                     @Override
                     public void onLongPress(MotionEvent e) {
                         if (paint_brush_port.getStrokeWidth()==10f){
@@ -139,7 +133,7 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
         }
         if(findViewById(R.id.paint_land) != null){
             buttonPincel.setOnTouchListener(new View.OnTouchListener() {
-                GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
+                final GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
                     @Override
                     public void onLongPress(MotionEvent e) {
                         if (paint_brush.getStrokeWidth()==10f){
@@ -216,7 +210,7 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     protected void onResume() {
         super.onResume();
         mSensorManager.registerListener(sensorEventListener, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-        senManager.registerListener(this, sensor, senManager.SENSOR_DELAY_NORMAL);
+        senManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
     protected void onPause() {
         super.onPause();
@@ -230,6 +224,13 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
         if(findViewById(R.id.paint_port) != null) {
             if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
                 textView.setText("" + event.values[0]);
+                if (event.values[0]>=10) {
+                    ContentResolver cResolver = this.getApplicationContext().getContentResolver();
+                    Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 255);
+                }else if (event.values[0]<10) {
+                    ContentResolver cResolver = this.getApplicationContext().getContentResolver();
+                    Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 0);
+                }
             }
         }
     }
