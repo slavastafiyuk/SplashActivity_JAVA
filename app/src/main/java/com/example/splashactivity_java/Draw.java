@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//Canvas_Port
 
 public class Draw extends AppCompatActivity implements SensorEventListener{
     public static Path path = new Path();
