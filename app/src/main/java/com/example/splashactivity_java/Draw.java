@@ -1,6 +1,5 @@
 package com.example.splashactivity_java;
 //Canvas_Land
-
 import static com.example.splashactivity_java.Canvas_land.colorList;
 import static com.example.splashactivity_java.Canvas_land.current_brush;
 import static com.example.splashactivity_java.Canvas_land.pathList;
@@ -8,7 +7,6 @@ import static com.example.splashactivity_java.Canvas_port.pathList_port;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -38,7 +36,6 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     private Sensor mAccelerometer;
     private float mAccelCurrent;
     private float mAccel;
-    Canvas_port port;
     Button buttonApagar;
     Button buttonPincel;
 
@@ -46,7 +43,6 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
     SensorManager senManager;
     Sensor sensor;
 
-    Context context;
     private final SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
