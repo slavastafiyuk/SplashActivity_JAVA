@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "131937243952",
-    "project_id": "projetotutorial-3effb",
-    "storage_bucket": "projetotutorial-3effb.appspot.com"
+    "project_number": "564271005022",
+    "project_id": "enduring-badge-332422-default-rtdb",
+    "storage_bucket": "enduring-badge-332422.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:131937243952:android:07938a5c3462e467dd2ef5",
+        "mobilesdk_app_id": "1:564271005022:android:5ea76f0532f94bd41e23cf",
         "android_client_info": {
           "package_name": "com.example.splashactivity_java"
         }
       },
       "oauth_client": [
         {
-          "client_id": "131937243952-uqt6rd86i3sgrlfbfu8g854abdli3m55.apps.googleusercontent.com",
+          "client_id": "564271005022-d85p99j83pgri0us6uhjomvbmr8n0rjm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.splashactivity_java",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "131937243952-ikmik2bbrg3g6g4u9muv7t002vpqidnt.apps.googleusercontent.com",
+          "client_id": "564271005022-2dpbviqi8gim4m83c2kuc8bqptpn57j6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDGh7WZnxPSm7QaB043dQ_6DL9rE5AUb6s"
+          "current_key": "AIzaSyA4aq64xBwfSB1l5HYS1AfevHaC3nAcX48"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "131937243952-ikmik2bbrg3g6g4u9muv7t002vpqidnt.apps.googleusercontent.com",
+              "client_id": "564271005022-2dpbviqi8gim4m83c2kuc8bqptpn57j6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

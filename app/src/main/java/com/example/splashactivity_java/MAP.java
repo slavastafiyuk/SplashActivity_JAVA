@@ -36,9 +36,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class MAP extends FragmentActivity implements OnMapReadyCallback {
     //FIREBASE---------------------------------------
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    //FirebaseDatabase rootNode;
+    //DatabaseReference reference;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
+
     //-----------------------------------------------
+    String ola;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private static final int LOCATION_PERMISSION_CODE = 101;
@@ -157,6 +161,11 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
         LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         if (z.equals("Iniciar")) {
             button.setText("Parar");
+            ola = "adeus";
+            myRef.setValue(ola);
+            //rootNode = FirebaseDatabase.getInstance();
+            //reference = rootNode.getReference("rotas");
+            //reference.push().setValue("ola");
             //------------------------------------------
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -183,8 +192,6 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 20), 1000, null);
             //-----------------------------------------------------
-            rootNode = FirebaseDatabase.getInstance();
-            reference = rootNode.getReference("rotas");
 
         }
     }
