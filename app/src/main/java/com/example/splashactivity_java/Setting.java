@@ -32,14 +32,6 @@ public class Setting extends AppCompatActivity {
         seekBar.setMax(255);
         seekBar.setKeyProgressIncrement(1);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if (Settings.System.canWrite(this)){}
-            else{
-                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
-                intent.setData(Uri.parse("package:" + getApplication().getPackageName()));
-                startActivity(intent);
-            }
-        }
         try {
             brightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS);
             seekBar.setProgress(brightness);
