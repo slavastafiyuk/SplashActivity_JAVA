@@ -77,12 +77,14 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
             if(findViewById(R.id.paint_port) != null){
                 if (mAccel > 27) {
+                    imageView.setImageResource(0);
                     pathList_port.clear();
                     path_port.reset();
                 }
             }
             if(findViewById(R.id.paint_land) != null){
                 if (mAccel > 27) {
+                    imageView2.setImageResource(0);
                     pathList.clear();
                     colorList.clear();
                     path.reset();
