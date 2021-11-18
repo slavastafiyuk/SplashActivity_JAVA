@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,6 +29,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
@@ -35,11 +38,10 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MAP extends FragmentActivity implements OnMapReadyCallback {
+    String TAG = "error";
     //FIREBASE---------------------------------------
-    //FirebaseDatabase rootNode;
-    //DatabaseReference reference;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     //-----------------------------------------------
     String ola;
@@ -161,11 +163,9 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
         LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         if (z.equals("Iniciar")) {
             button.setText("Parar");
-            ola = "adeus";
-            myRef.setValue(ola);
-            //rootNode = FirebaseDatabase.getInstance();
-            //reference = rootNode.getReference("rotas");
-            //reference.push().setValue("ola");
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference();
+            reference.setValue("Ola!!!!");
             //------------------------------------------
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling

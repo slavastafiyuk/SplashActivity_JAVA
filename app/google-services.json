@@ -1,7 +1,8 @@
 {
   "project_info": {
     "project_number": "564271005022",
-    "project_id": "enduring-badge-332422-default-rtdb",
+    "firebase_url": "https://enduring-badge-332422-default-rtdb.firebaseio.com",
+    "project_id": "enduring-badge-332422",
     "storage_bucket": "enduring-badge-332422.appspot.com"
   },
   "client": [
