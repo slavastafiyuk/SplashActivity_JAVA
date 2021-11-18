@@ -22,5 +22,9 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="Iniciar_Caminho">Iniciar</string>
     <string name="Parar_Caminho">Parar</string>
+    <string name="guardar">Guardar</string>
+    <string name="download">Download</string>
+    <string name="guardar_land">Guardar</string>
+    <string name="download_land">Download</string>
     <string name="DescricaoFAQ">Grupo 11, TP12: \nDiogo Furtado Fc57668 \nPedro Guilherme Fc57667 \nVyacheslav Stafiyuk Fc57589</string>
 </resources>

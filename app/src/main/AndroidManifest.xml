@@ -15,6 +15,10 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--<uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>-->
 
     <application
@@ -23,7 +27,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SplashActivity_JAVA">
+        android:theme="@style/Theme.SplashActivity_JAVA"
+        android:requestLegacyExternalStorage="true">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
