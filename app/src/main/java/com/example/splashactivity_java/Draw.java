@@ -113,7 +113,7 @@ public class Draw extends AppCompatActivity implements SensorEventListener{
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
-                        getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+                        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
                         return super.onDoubleTap(e);
                     }
 
